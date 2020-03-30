@@ -4,6 +4,17 @@
 #include <string>
 namespace my_vio
 {
+    class cameraParam
+    {
+    public:
+        cameraParam() = default;
+        ~cameraParam() = default;
+
+        double fu;
+        double fv;
+        double cu;
+        double cv;
+    };
     class camera
     {
     public:
