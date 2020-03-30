@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
+set(CMAKE_CXX_STANDARD 11)
 project(my_vio)
-
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 find_package(Eigen3 REQUIRED)
 find_package(Ceres REQUIRED)
@@ -14,15 +13,21 @@ message(WARNING "OpenCV_VERSION: ${OpenCV_VERSION}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 include_directories(
-    inc 
+        inc
+        ${OpenCV_INCLUDE_DIRS}
 )
 
-add_library(MY_LIB
-    src/camera/camera.cpp
+add_library(
+        MY_LIB
+        src/camera/Euroc.cpp
 )
 
 add_executable(
     my_vio
     src/main.cpp
 )
-
+target_link_libraries(
+        my_vio
+        MY_LIB
+        ${OpenCV_LIBS}
+)
