@@ -15,11 +15,13 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 include_directories(
         inc
         ${OpenCV_INCLUDE_DIRS}
+        /usr/include/eigen3
 )
 
 add_library(
         MY_LIB
         src/camera/Euroc.cpp
+        src/imu/Euroc_imu.cpp
 )
 
 add_executable(

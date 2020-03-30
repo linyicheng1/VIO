@@ -1,4 +1,4 @@
-#include "camera/Euroc.h"
+#include "camera/Euroc.hpp"
 
 namespace my_vio
 {
